@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import io
 import base64
+import os  # Add this import
 
 app = Flask(__name__)
 
@@ -16,4 +17,5 @@ def generate_graph():
     return "Graph generation not yet implemented."
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Use the PORT environment variable if it's there
+    app.run(host="0.0.0.0", port=port, debug=True)

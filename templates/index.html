@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woodcock-Johnson 4 Test Graph Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Scores and Confidence Intervals</h1>
+        <form action="/generate-graph" method="post">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subtest</th>
+                        <th>Standard Score</th>
+                        <th>CI Lower Limit</th>
+                        <th>CI Upper Limit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- This structure will be repeated for all 11 subtests -->
+                    <tr>
+                        <td>Letter-Word Identification</td>
+                        <td><input type="number" name="score_letter_word_identification" required></td>
+                        <td><input type="number" name="ci_lower_letter_word_identification" required></td>
+                        <td><input type="number" name="ci_upper_letter_word_identification" required></td>
+                    </tr>
+                    <!-- ... Add similar rows for other subtests ... -->
+                </tbody>
+            </table>
+            <button type="submit">Generate Graph</button>
+        </form>
+    </div>
+</body>
+</html>
